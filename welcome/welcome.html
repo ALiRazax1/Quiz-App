@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header
+      class="container-xxl d-flex justify-content-between align-items-center px-3 text-light"
+      style="background-color: #17256b; height: 80px"
+    >
+      <div class="h-100">
+        <img
+          class="h-100"
+          src="/assets/images/logo.png"
+          alt=""
+        />
+      </div>
+      <div><span class="h5">V 0.1 BETA</span></div>
+    </header>
+    <section class="welcome-page py-5 mx-auto container-xxl bg-white" id="exam-screen">
+      <div class="mx-5"><h1 id="wlecome">Welcome,</h1></div>
+      <hr class="mx-5" />
+      <div id="exam-screen-detal"
+        class="d-md-flex justify-content-md-between m-5 column-gap-5 row-gap-md-0 row-gap-0 exam-selection"
+      >
+        <div class="col my-5">
+          <div>
+            <h1 id="section1">Python</h1>
+            <h2>1 Subject</h2>
+            <button class="join-btn" onclick="join()" id="Python">Join</button>
+          </div>
+        </div>
+        <div class="col my-5">
+          <div>
+            <h1 id="section2">Web And Mobile</h1>
+            <h2>2 Subject</h2>
+            <button class="join-btn" onclick="join()" id="Web And Mobile">Join</button>
+          </div>
+        </div>
+        <div class="col my-5">
+          <div>
+            <h1 id="section3">Module-1 Exam</h1>
+            <h2>3 Subject</h2>
+            <button class="join-btn" onclick="join()" id="Module-1 Exam">Join</button>
+          </div>
+        </div>
+      </div>
+    </section>
+      <section class="welcome-page py-5 mx-auto container-xxl bg-white" id="exam-detail-screen"><div class="mx-5"><h1 id="exam-detail-main-heading"><span class="h3 fw-semibold">(2 subject)</span> </h1></div> <hr class="mx-5"/>
+      
+        <div class="accordion accordion-flush  mx-5" id="accordionFlushExample">
+          <div class="accordion-item mb-5">
+            <h2 class="accordion-header">
+              <button id="accordion1-btn" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body px-0">
+                <table class="table table-bordered w-75">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="w-25" >Quiz Name</th>
+                      <td scope="col" class="text-center" colspan="2" id="quiz-name"></td>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="w-25" >Total Question</th>
+                      <td colspan="2" class="text-center" id="total-question">15</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row" class="w-25" >Total Time</th>
+                      <td colspan="2" class="text-center">20 Minutes</td>
+                      
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row" class="w-25">Passing Score</th>
+                      <td colspan="2" class="text-center" >70%</td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+  
+                <button onclick="continueQuiz()">Continue</button>
+  
+  
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/bootsrap.js"></script>
+    <script src="/bundle.js"></script>
+    <script src="/popper.js"></script>
+    <script src="../app.js"></script>
+  </body>
+</html>

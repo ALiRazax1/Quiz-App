@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+<style>
+   
+</style>
+</head>
+
+<body>
+    <!-- screen 1 with modals -->
+
+<header class="container-xxl d-flex justify-content-between align-items-center px-3 text-light" style="background-color: #17256b; height: 80px;">
+<div class="h-100" ><img class="h-100" src="/assets/images/logo.png" alt=""></div>
+<div><span class="h5">V 0.1 BETA</span></div>
+</header>
+<section class="container-xxl text-center py-4 min-vh-100">
+    <div class=""><h1 class="py-4 ">Quiz Application</h1>
+    <h2 class="pb-4">Saylani Mass IT Training Program</h2>
+    <p class="pb-4">Saylani Mass IT Training program is an institute who deliverslatest IT education (FREE OF COST.) <br/> Syalani Mass Training Department is one of the department which is running unfer the Saylani Welfare Trust Management.</p></div>
+<div><h3 class="pb-2 h5 fw-semibold">Start Your Exam Here</h3>
+<button type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+<div class="modal fade text-start" id="signupModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center text-center">
+          <h1 class="modal-title fs-5 fw-bolder">Student Signup</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label fw-bold">Your Name:</label>
+                <input type="text" class="form-control" id="signup-name">
+              </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label fw-bold">Your Email:</label>
+              <input type="email" class="form-control" id="signup-email">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label fw-bold">Your Password:</label>
+              <input type="password" class="form-control" id="signup-password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" mx-auto" id="signup-btn" onclick="signUp()">Signup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" >Log In</button></div>
+<div class="modal fade text-start" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center text-center">
+          <h1 class="modal-title fs-5 fw-bolder">Student Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label fw-bold">Your Email:</label>
+              <input type="email" class="form-control" id="login-email">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label fw-bold">Your Password:</label>
+              <input type="password" class="form-control" id="login-password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" mx-auto" onclick="login()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/bootsrap.js"></script>
+<script src="/bundle.js"></script>
+<script src="/popper.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

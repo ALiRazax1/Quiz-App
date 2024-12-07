@@ -1,0 +1,44 @@
+@font-face {
+    font-family: josefinsans ;
+    src: url(./assets/fonts/static/JosefinSans-Light.ttf);
+}
+/* scren 1 */
+header,button{background-color: #17256b;}
+section{background-color: #eaebef;font-family: josefinsans;}
+h1{color: #1c2a64;font-size: 78px;}
+h2{font-size: 52px;}
+.form-control,.btn-close{box-shadow: none !important; }
+.form-control:focus{border-color:#1c2a64 !important;}
+.btn-close{background-color: transparent !important;border: none !important;}
+.btn-close:hover{background-color: transparent !important;border: none !important;}
+/* .btn-close{padding-left: 50% !important;} */
+button{width: 120px;height: 40px; border: 2px solid transparent;color: white;font-weight: 900;transition: 0.6s;}
+button:hover{background-color: #071558ee;color: white;border: 2px solid #17256b;}
+
+/* welcom screen */
+.welcome-page >div> h1{font-size: 48px;}
+/* br{color: black;} */
+.exam-selection h1{font-size: 32px !important;font-weight: 900;color: black;padding: 5px 0px;}
+.exam-selection h2{font-size: 24px;font-weight: 600;color: #17256b;padding: 5px 0;}
+.exam-selection > div {border: 1px solid #17256b; padding: 2% 1.5% 1%;}
+/* .exam-selection  col{border: 1px solid #17256b;;padding: 10px 15px 10px ;} */
+.join-btn{width: 100%;background-color: transparent !important;border: 1px solid #17256b !important; color: #17256b; transition: 0.6s;}
+.join-btn:hover{background-color: #17256b !important;color: white;}
+/* exam detail */
+.accordion-button{background-color: #eaebef;border: none !important;}
+.accordion-button::after,.accordion-button::before{content: none;}
+/* .accordion-button:hover{background-color: #eaebef;} */
+.accordion-button:focus{box-shadow: none !important;}
+.accordion-button:not(.collapsed){background-color: #eaebef !important;}
+.accordion-item{outline: none !important;border: none !important;}
+.table-bordered{border-color: #17256b;}
+
+/* question screen */
+.question{outline: 2px solid rgba(128, 128, 128, 0.692);}
+
+/* result scree */
+.rounded-circle{width: 100px;height: 100px;}
+.back-btn{background-color: white;color: #17256b;border: 1px solid #17256b;width: 160px;font-size: 18px;}
+.back-btn a{text-decoration: none;color: #17256b;}
+.back-btn:hover a{color: white;}
+input,label{cursor: pointer;}
