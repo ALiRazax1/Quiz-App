@@ -322,10 +322,10 @@ const pythonQuestions = [
       option1: "hidden",
       option2: "display",
       option3: "visibility",
+      option4: "opacity",
+      correctAnswer: "display"
     }]
   let quizName = localStorage.getItem("quizName")
-  
-  
     let question = document.getElementById("question")
     let option1label = document.getElementById("option1label")
     let option2label = document.getElementById("option2label")
@@ -349,6 +349,7 @@ const pythonQuestions = [
     if(quizName === "Python"){
       function renderQuestion(){
 
+
         quizScreen.style.display = "block"
   resultScreen.style.display = "none"
           question.innerText = pythonQuestions[questionCount].question
@@ -364,6 +365,7 @@ const pythonQuestions = [
   
   }
   window.onload = renderQuestion()
+  
   function deSelect() {
       for (let i = 0; i < selectedOption.length; i++) {
         selectedOption[i].checked = false;
@@ -374,13 +376,19 @@ const pythonQuestions = [
       resultScreen.style.display = 'block'
   
       let percentageCalculate = Math.round(totalScore / pythonQuestions.length * 100)
-      if(percentageCalculate < 70) {
+      localStorage.setItem("pythonResult", JSON.stringify({resultPercentage:percentageCalculate,questionLength:pythonQuestions.length,finalScore:totalScore}))
+ 
+      
+      if(  percentageCalculate  < 70) {
+      
           announcement.innerText = ' You are Failed ! Better Luck Next Time'
           announcement.className = 'text-danger h2'
           percentage.classList.remove("border-success")
           percentage.classList.add("border-danger")    }
            else {
-          announcement = 'Congratulations ! You are Passed'
+           
+          announcement.innerText = 'Congratulations ! You are Passed'
+          announcement.className = 'text-success h2'
           percentage.classList.add("border-success")
           percentage.classList.remove("border-danger")
       }
@@ -396,13 +404,10 @@ const pythonQuestions = [
         
         if (selectedOption[i].checked) {
           radioChecked = true;
-    console.log(pythonQuestions[questionCount].correctAnswer);
-    console.log(selectedOption[i].value);
     
          
           if (selectedOption[i].value === pythonQuestions[questionCount].correctAnswer) {
             totalScore++;
-            console.log(totalScore);
             
           }
         }
@@ -458,13 +463,16 @@ const pythonQuestions = [
       resultScreen.style.display = 'block'
   
       let percentageCalculate = Math.round(totalScore / webDevQuestions.length * 100)
+      localStorage.setItem("webDevResult", JSON.stringify({resultPercentage:percentageCalculate,questionLength:webDevQuestions.length,finalScore:totalScore}))
+      
       if(percentageCalculate < 70) {
           announcement.innerText = ' You are Failed ! Better Luck Next Time'
           announcement.className = 'text-danger h2'
           percentage.classList.remove("border-success")
           percentage.classList.add("border-danger")    }
            else {
-          announcement = 'Congratulations ! You are Passed'
+          announcement.innerText = 'Congratulations ! You are Passed'
+          announcement.className = 'text-success h2'
           percentage.classList.add("border-success")
           percentage.classList.remove("border-danger")
       }
@@ -480,13 +488,10 @@ const pythonQuestions = [
         
         if (selectedOption[i].checked) {
           radioChecked = true;
-    console.log(webDevQuestions[questionCount].correctAnswer);
-    console.log(selectedOption[i].value);
     
          
           if (selectedOption[i].value === webDevQuestions[questionCount].correctAnswer) {
             totalScore++;
-            console.log(totalScore);
             
           }
         }
@@ -542,13 +547,15 @@ function deSelect() {
     resultScreen.style.display = 'block'
 
     let percentageCalculate = Math.round(totalScore / module1Exam.length * 100)
+    localStorage.setItem("module1Result", JSON.stringify({resultPercentage:percentageCalculate,questionLength:module1Exam.length,finalScore:totalScore}))
     if(percentageCalculate < 70) {
         announcement.innerText = ' You are Failed ! Better Luck Next Time'
         announcement.className = 'text-danger h2'
         percentage.classList.remove("border-success")
         percentage.classList.add("border-danger")    }
          else {
-        announcement = 'Congratulations ! You are Passed'
+        announcement.innerText = 'Congratulations ! You are Passed'
+        announcement.className = 'text-success h2'
         percentage.classList.add("border-success")
         percentage.classList.remove("border-danger")
     }
@@ -564,13 +571,10 @@ function next() {
       
       if (selectedOption[i].checked) {
         radioChecked = true;
-  console.log(module1Exam[questionCount].correctAnswer);
-  console.log(selectedOption[i].value);
   
        
         if (selectedOption[i].value === module1Exam[questionCount].correctAnswer) {
           totalScore++;
-          console.log(totalScore);
           
         }
       }

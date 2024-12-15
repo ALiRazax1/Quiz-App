@@ -8,19 +8,13 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <header
-      class="container-xxl d-flex justify-content-between align-items-center px-3 text-light"
-      style="background-color: #17256b; height: 80px"
-    >
-      <div class="h-100">
-        <img
-          class="h-100"
-          src="/assets/images/logo.png"
-          alt=""
-        />
-      </div>
-      <div><span class="h5">V 0.1 BETA</span></div>
-    </header>
+    <header class="container-xxl d-flex justify-content-between align-items-center px-3 text-light" style="background-color: #17256b; height: 80px;">
+      <div class="h-100" ><img class="h-100" src="/assets/images/logo.png" alt=""></div>
+      <div class="d-flex justify-content-between column-gap-4 align-items-center"><div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" onclick="toggleMode()">
+        <label class="form-check-label fw-bold" for="flexSwitchCheckDefault" >Dark Mode</label>
+      </div><div><span class="h5">V 0.1 BETA</span></div></div>
+      </header>
     <section class="welcome-page py-5 mx-auto container-xxl bg-white" id="exam-screen">
       <div class="mx-5"><h1 id="wlecome">Welcome,</h1></div>
       <hr class="mx-5" />

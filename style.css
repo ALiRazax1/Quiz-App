@@ -42,3 +42,7 @@ button:hover{background-color: #071558ee;color: white;border: 2px solid #17256b;
 .back-btn a{text-decoration: none;color: #17256b;}
 .back-btn:hover a{color: white;}
 input,label{cursor: pointer;}
+
+
+.form-check-input{box-shadow: none !important; border-color: transparent;}
+.form-check-input:checked{background-color: black;border-color: transparent;}

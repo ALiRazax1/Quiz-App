@@ -323,7 +323,6 @@ const pythonQuestions = [
     }]
 
 
-
 let signUpInputName = document.getElementById("signup-name")
 let signUpInputEmail = document.getElementById("signup-email")
 let signUpInputPassword = document.getElementById("signup-password")
@@ -333,6 +332,39 @@ let loginInputPassword = document.getElementById("login-password")
 let quiz1DetailBtn = document.getElementById("accordion1-btn")
 let quiz2DetailBtn = document.getElementById("accordion2-btn");
 let userNameDisplay = document.getElementById("wlecome");
+let darkModeSwitch = document.getElementById("darkModeSwitch")
+
+function darkMode(){ for(let val of document.getElementsByTagName("section")){ val.classList.add("bg-dark")
+  val.classList.remove("bg-white")
+  val.classList.add("text-light")
+  val.classList.remove("text-dark")}
+  document.body.classList.add("bg-dark")
+  document.body.classList.add("text-light")
+ }
+  function lightMode(){for (let val of document.getElementsByTagName("section")){val.classList.remove("bg-dark")
+    val.classList.add("bg-white")
+    val.classList.remove("text-light")
+    val.classList.add("text-dark")}
+    document.body.classList.remove("bg-dark")
+    document.body.classList.remove("text-light")
+     }
+function toggleMode(){
+  if (darkModeSwitch.checked === true) {
+darkMode()    
+    localStorage.setItem("mode","dark")
+  }else{ 
+   lightMode()
+    localStorage.setItem("mode","light")}
+}
+if (localStorage.getItem("mode") === "dark") {
+  window.onload = darkMode()
+  darkModeSwitch.checked = true
+  
+}else if (localStorage.getItem("mode") === "light"){ window.onload =lightMode(); 
+  darkModeSwitch.checked = false
+}
+
+
 let userName;
 
 let userData = []
@@ -377,7 +409,6 @@ function login() {
     for(let data in userData){
         if(userData[data].email === loginInputEmailValue && userData[data].password === loginInputPasswordValue){
            userName = userData[data].name
-           console.log(userData[data].name);
            
            
            
@@ -414,8 +445,7 @@ function join(){
         if (event.target.id === "Python"  || event.target.id === "Web And Mobile" || event.target.id === "Module-1 Exam" ){
             
     quizDetailHeading.innerText = event.target.id
-    console.log(event.target.id);
-    console.log(quizDetailHeading);
+    
     
         document.getElementById("quiz-name").innerText = quizDetailHeading.innerText
             
@@ -431,10 +461,73 @@ function join(){
        
 }
 
-function continueQuiz(){
-document.location.href = "./Exams/quiz.html"
-localStorage.setItem("quizName", quizDetailHeading.innerText)
+
+function resultAttempted(percentage,questionLength,totalScore){
+  let message;
+  let borderColor;
+  let textColor
+if(percentage < 70) {
+  message = ' You are Failed ! Better Luck Next Time'
+  borderColor = "border-danger"
+  textColor = "text-danger"
+      }
+   else {
+    message = 'Congratulations ! You are Passed'
+   borderColor = "border-success"
+  textColor = "text-success"
+    
+ 
 }
+
+
+  quizDetailScreen.innerHTML =` <section
+  class="container-xxl welcome-page my-5 bg-white"
+  id="result-screen"
+>
+  <div class="m-5">
+    <h1 class="fw-bold" id="resultHeading">${quizDetailHeading.innerText}</h1>
+    <hr />
+  </div>
+  <div class="w-50 mx-auto">
+    <h2 class="h4 ${textColor}" id="announcement">${message}</h2>
+    <hr />
+    <div class="d-flex justify-content-between">
+      <h5 class="fw-bold">Total Question</h5>
+      <h5 class="fw-bold" id="totalQuestion">${questionLength}</h5>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-between">
+      <h5 class="fw-bold">Correct Question</h5>
+      <h5 class="fw-bold" id="correctQuestion">${totalScore}</h5>
+    </div>
+    <div
+    id="percentage"  
+    class="border border-2 ${borderColor}  rounded-circle mx-auto d-flex justify-content-center align-items-center h3 fw-semibold"
+    >
+      ${percentage}
+    </div>
+    <div class="d-flex justify-content-center">
+      <button class="back-btn py-2 my-4"><a href="../welcome.html">Back to Home</a> </button>
+    </div>
+  </div>
+</section>`
+
+}
+let python;
+let webDev;
+let module1;
+python =JSON.parse(localStorage.getItem("pythonResult"))
+webDev = JSON.parse(localStorage.getItem("webDevResult"))
+module1 = JSON.parse(localStorage.getItem("module1Result"))
+function continueQuiz(){ if( (quizDetailHeading.innerText == "Python") && python ){resultAttempted(python.resultPercentage,python.questionLength,python.finalScore); 
+
+
+} else if( (quizDetailHeading.innerText == "Web And Mobile" && webDev)){resultAttempted(webDev.resultPercentage,webDev.questionLength,webDev.finalScore);
+}else if((quizDetailHeading.innerText == "Module-1 Exam") && module1){resultAttempted(module1.resultPercentage,module1.questionLength,module1.finalScore)} else{document.location.href = "./Exams/quiz.html"
+  localStorage.setItem("quizName", quizDetailHeading.innerText)
+  }
+}
+
 
 
 
